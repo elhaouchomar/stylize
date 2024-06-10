@@ -6,7 +6,7 @@ It's a web server for outputting the text in a graphic representation of ASCII.
 Ascii-art-web consists in creating and running a server, in which it will be possible to use a web GUI (graphical user interface) version of a program that outputs text in a graphical representation of ASCII
 
 # Authors
-zrdouane
+zrdouane & oelhaouc
 
 # Usage
 1.To run program use the following command

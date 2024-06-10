@@ -18,15 +18,12 @@ func RenderHomePage(res http.ResponseWriter, req *http.Request) {
 
 	// Parse the index.html file as a template.
 	temp, err := template.ParseFiles("./View/html/index.html")
-	// If there's an error parsing the template, send an HTTP 500 response and return.
-	if err != nil {
-		http.Error(res, "Internal Server Error", http.StatusInternalServerError)
-		return
-	}
-
 	// Execute the template and write the output to the HTTP response.
 	// If there's an error executing the template, send an HTTP 500 response.
-	if err := temp.Execute(res, nil); err != nil {
-		http.Error(res, "Internal Server Error", http.StatusInternalServerError)
+	err = temp.Execute(res, nil)
+	// If there's an error parsing the template, send an HTTP 500 response and return.
+	if err != nil {
+		HandleError(res, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		return
 	}
 }
