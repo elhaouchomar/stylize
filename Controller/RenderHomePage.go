@@ -10,6 +10,7 @@ func RenderHomePage(res http.ResponseWriter, req *http.Request) {
 		Err404(res)
 		return
 	}
+
 	temp, err := template.ParseFiles("./View/html/index.html")
 	err = temp.Execute(res, nil)
 	if err != nil {

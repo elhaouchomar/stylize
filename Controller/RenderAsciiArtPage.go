@@ -30,20 +30,14 @@ func RenderAsciiArtPage(w http.ResponseWriter, r *http.Request) {
 		"standard":   true,
 		"thinkertoy": true,
 	}
+
 	temp, err1 := template.ParseFiles("./View/html/asciiArt.html")
 	if err1 != nil {
 		Err500(w)
 		return
 	}
 
-	url := r.URL.String()
-	methode := r.Method
-	if url != "/asciiArt" {
-		Err404(w)
-		return
-	}
-
-	if methode != "POST" {
+	if r.Method != "POST" {
 		Err405(w)
 		return
 	}
@@ -52,7 +46,6 @@ func RenderAsciiArtPage(w http.ResponseWriter, r *http.Request) {
 		Err400(w)
 		return
 	} 
-
 
 	if err := ValidateInputAndHandleErrors(w, text); err != nil {
 		return
