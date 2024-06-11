@@ -32,6 +32,5 @@ func HandleError(res http.ResponseWriter, Errortxt string, Errorstatus int) {
 		ErrStatusString: Errortxt,
 	}
 	res.WriteHeader(Errorstatus)
-	// Execute the template with the error data and write the output to the HTTP response.
 	temp.Execute(res, data)
 }

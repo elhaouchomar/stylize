@@ -5,16 +5,16 @@ import (
 	"net/http"
 )
 
-func RenderHomePage(res http.ResponseWriter, req *http.Request) {
-	if req.URL.Path != "/" || req.Method != "GET" {
-		Err404(res)
+func RenderHomePage(w http.ResponseWriter, r *http.Request) {
+	if r.URL.Path != "/" || r.Method != "GET" {
+		Err404(w)
 		return
 	}
 
 	temp, err := template.ParseFiles("./View/html/index.html")
-	err = temp.Execute(res, nil)
+	err = temp.Execute(w, nil)
 	if err != nil {
-		Err500(res)
+		Err500(w)
 		return
 	}
 }
