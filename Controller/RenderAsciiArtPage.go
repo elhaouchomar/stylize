@@ -7,17 +7,17 @@ import (
 )
 
 var (
-	Err500 = func(w http.ResponseWriter) {
-		HandleError(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+	Err400 = func(w http.ResponseWriter) {
+		HandleError(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
 	}
 	Err404 = func(w http.ResponseWriter) {
 		HandleError(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
 	}
-	Err400 = func(w http.ResponseWriter) {
-		HandleError(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
-	}
 	Err405 = func(w http.ResponseWriter) {
 		HandleError(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
+	}
+	Err500 = func(w http.ResponseWriter) {
+		HandleError(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 	}
 )
 
@@ -30,9 +30,8 @@ func RenderAsciiArtPage(w http.ResponseWriter, r *http.Request) {
 		"thinkertoy": true,
 	}
 
-	temp, err1 := template.ParseFiles("./View/html/asciiArt.html")
-	if err1 != nil {
-		Err500(w)
+	if text == "" || !validStyles[style] {
+		Err400(w)
 		return
 	}
 
@@ -41,12 +40,9 @@ func RenderAsciiArtPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if text == "" || !validStyles[style] {
-		Err400(w)
-		return
-	}
-
-	if err := ValidateInputAndHandleErrors(w, text); err != nil {
+	temp, err1 := template.ParseFiles("./View/html/asciiArt.html")
+	if err1 != nil {
+		Err500(w)
 		return
 	}
 
@@ -56,6 +52,9 @@ func RenderAsciiArtPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	if err := ValidateInputAndHandleErrors(w, text); err != nil {
+		return
+	}
 	data := HomePageData{
 		Message: finalArt,
 	}
