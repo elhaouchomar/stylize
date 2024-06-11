@@ -1,11 +1,14 @@
 package Controller
 
 import (
+	"ascii-art-web/model"
 	"html/template"
 	"net/http"
-	"ascii-art-web/model"
 )
 
+type HomePageData struct {
+	Message string
+}
 
 var (
 	Err500 = func(w http.ResponseWriter) {
@@ -34,11 +37,11 @@ func RenderAsciiArtPage(w http.ResponseWriter, r *http.Request) {
 	if err := ValidateInputAndHandleErrors(w, text); err != nil {
 		return
 	}
-	
-	if text == "" || style == "" || !validStyles[style]{
+
+	if !validStyles[style] {
 		Err400(w)
 		return
-	} 
+	}
 
 	if r.Method != "POST" {
 		Err405(w)
