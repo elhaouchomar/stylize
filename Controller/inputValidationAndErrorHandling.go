@@ -8,7 +8,7 @@ import (
 )
 
 type ErrorResponseData struct {
-	ErrStatusInt    int   
+	ErrStatusInt    int
 	ErrStatusString string
 }
 type HomePageData struct {
@@ -25,20 +25,9 @@ func ValidateInputAndHandleErrors(res http.ResponseWriter, text string) error {
 			}
 		}
 	}
-	if text == "" {
-		temp, err1 := template.ParseFiles("./View/html/index.html")
-		if err1 != nil {
-			Err500(res)
-			return errors.New("error")
-		}
-		data := HomePageData{
-			Message: "Enter the text",
-		}
-		temp.Execute(res, data)
-		return errors.New("error")
-	}
 	return nil
 }
+
 func HandleError(res http.ResponseWriter, Errortxt string, Errorstatus int) {
 	temp, _ := template.ParseFiles("./View/html/error.html")
 	data := ErrorResponseData{

@@ -1,23 +1,24 @@
 package Controller
 
 import (
-	"ascii-art-web/model"
 	"html/template"
 	"net/http"
+	"ascii-art-web/model"
 )
 
+
 var (
-	Err400 = func(w http.ResponseWriter) {
-		HandleError(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
+	Err500 = func(w http.ResponseWriter) {
+		HandleError(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 	}
 	Err404 = func(w http.ResponseWriter) {
 		HandleError(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
 	}
+	Err400 = func(w http.ResponseWriter) {
+		HandleError(w, http.StatusText(http.StatusBadRequest), http.StatusBadRequest)
+	}
 	Err405 = func(w http.ResponseWriter) {
 		HandleError(w, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
-	}
-	Err500 = func(w http.ResponseWriter) {
-		HandleError(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 	}
 )
 
@@ -30,10 +31,14 @@ func RenderAsciiArtPage(w http.ResponseWriter, r *http.Request) {
 		"thinkertoy": true,
 	}
 
-	if text == "" || !validStyles[style] {
-		Err400(w)
+	if err := ValidateInputAndHandleErrors(w, text); err != nil {
 		return
 	}
+	
+	if text == "" || style == "" || !validStyles[style]{
+		Err400(w)
+		return
+	} 
 
 	if r.Method != "POST" {
 		Err405(w)
@@ -52,9 +57,6 @@ func RenderAsciiArtPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if err := ValidateInputAndHandleErrors(w, text); err != nil {
-		return
-	}
 	data := HomePageData{
 		Message: finalArt,
 	}
