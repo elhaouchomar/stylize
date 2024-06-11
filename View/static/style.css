@@ -1,217 +1,67 @@
-/* Global styles for the body of the document */
 body {
-  margin: 0; /* Removes default margins */
-  padding: 0; /* Removes default padding */
-  font-family: "Ink Free"; /* Sets the font */
-  min-height: 100vh; /* Ensures the body takes up at least the full height of the viewport */
+  margin: 0;
+  padding: 0;
+  font-family: "Ink Free";
+  min-height: 100vh;
   background: url("/View/image/images.jpg") no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
 }
 
-/* Styles for all links */
 a {
-  color: inherit; /* Makes the link color inherit from its parent element */
-  text-decoration: none; /* Removes the underline from links */
+  color: inherit;
+  text-decoration: none;
 }
 
-/* Styles for the .msg class */
 .msg {
-  max-width: 50%; /* Sets a maximum width */
-  height: 160px; /* Sets a fixed height */
-  border-color: #000000; /* Sets a solid black border */
-  border-style: solid; /* Sets the border style */
-  background-color:  rgb(255, 255, 255); /* Set white background */
-  overflow: scroll; /* Allows scrolling if the content overflows */
-  padding: 0 24px; /* Adds horizontal padding */
+  max-width: 50%;
+  height: 160px;
+  border: 1px solid #000000;
+  background-color: rgb(255, 255, 255);
+  overflow: scroll;
+  padding: 0 24px;
 }
 
-/* Styles for the .pre_msg class */
 .pre_msg {
- width: 100%; /* Sets the width to 100% */
+  width: 100%;
 }
 
-/* Styles for the .form_button class */
 .form_button {
-  display: inline-block; /* Sets the display type */
-  padding: 12px 32px; /* Sets the padding */
-  transition: all 0.3s ease-out; /* Sets the transition effect */
-  text-transform: uppercase; /* Transforms the text to uppercase */
-  color: #fff; /* Sets the text color */
-  border: none; /* Removes the border */
-  border-radius: 8px; /* Rounds the corners of the button */
-  outline: none; /* Removes the outline */
-  background-color: rgb(0, 0, 0); /* Sets the background color */
-  background-clip: border-box; /* Clips the background to the border box */
-  font-family: "Ink Free"; /* Sets the font */
-  font-weight: 500; /* Sets the font weight */
+  display: inline-block;
+  padding: 12px 32px;
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  background-color: rgb(0, 0, 0);
+  font-family: "Ink Free";
+  font-weight: 500;
 }
 
-/* Styles for the .form_button class when it's hovered over */
 .form_button:hover {
-  transition: all 0.1s ease-out; /* Changes the transition effect */
-  transform: scale(1.02, 1.02); /* Scales the button slightly */
-  box-shadow: rgba(0, 0, 0, 0.3) 0 0 16px 2px; /* Adds a box shadow */
+  transform: scale(1.02, 1.02);
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 16px 2px;
 }
 
-/* Styles for the .div_text class */
-.div_text{
-  max-width: 350px; /* Sets a maximum width */
-  padding: 0 24px; /* Adds horizontal padding */
+@media only screen and (max-width: 768px) {
+  .msg {
+    max-width: 80%;
+  }
+
+  .form_button {
+    padding: 10px 24px;
+  }
 }
 
-/* Styles for the .textarea_style class */
-.textarea_style{
-  font-family: "Ink Free"; /* Sets the font */
-  width: 100%; /* Sets the width to 100% */
-  height: 150px; /* Sets a fixed height */
-  resize: none; /* Disables resizing */
-}
+@media only screen and (max-width: 480px) {
+  .msg {
+    max-width: 100%;
+    font-size: 14px;
+  }
 
-/* Styles for the .showOverlay class */
-.showOverlay {
-  bottom: 0; /* Positions the element at the bottom */
-  display: flex; /* Sets the display type to flex */
-  font-size: 16px; /* Sets the font size */
-  left: calc(50% - 55px); /* Positions the element to the left */
-  margin-bottom: 7px; /* Adds a bottom margin */
-  position: absolute; /* Positions the element absolutely */
-}
-
-/* Styles for the .check class */
-.check {
-  bottom: 0; /* Positions the element at the bottom */
-  display: flex; /* Sets the display type to flex */
-  left: calc(50% + 40px); /* Positions the element to the left */
-  margin-bottom: 10px; /* Adds a bottom margin */
-  position: absolute; /* Positions the element absolutely */
-}
-
-/* Styles for the .containerOuter class */
-.containerOuter {
-  max-width: 175px; /* Sets a maximum width */
-  background: white; /* Sets the background color */
-  border-radius: 8px; /* Rounds the corners of the container */
-  box-shadow: 2px 6px 20px 2px rgba(10,10,120,0.15); /* Adds a box shadow */
-}
-
-/* Styles for the .container class */
-.container {
-  position: relative; /* Positions the element relatively */
-  margin: 20px; /* Adds a margin */
-  overflow: hidden; /* Hides overflowed content */
-  width: 160px; /* Sets a fixed width */
-}
-
-/* Styles for the .hidden class */
-.hidden {
-  display: none; /* Hides the element */
-}
-
-/* Styles for the .entry class */
-.entry {
-  height: 25px; /* Sets a fixed height */
-  position: absolute; /* Positions the element absolutely */
-  width: 160px; /* Sets a fixed width */
-}
-
-/* Styles for the second child of the .entry class */
-.entry:nth-child(2) {
-  left: 8px; /* Positions the element to the left */
-  top: 8px; /* Positions the element at the top */
-}
-
-/* Styles for the fourth child of the .entry class */
-.entry:nth-child(4) {
-  left: 8px; /* Positions the element to the left */
-  top: 58px; /* Positions the element at the top */
-}
-
-/* Styles for the sixth child of the .entry class */
-.entry:nth-child(6) {
-  left: 8px; /* Positions the element to the left */
-  top: 108px; /* Positions the element at the top */
-}
-
-/* Styles for the .circle class */
-.circle {
-  border: 2px solid #545556; /* Sets a solid border */
-  border-radius: 50%; /* Makes the element circular */
-  cursor: pointer; /* Changes the cursor to a pointer when hovering over the element */
-  height: 20px; /* Sets a fixed height */
-  position: absolute; /* Positions the element absolutely */
-  transition: border-color 300ms; /* Sets the transition effect for the border color */
-  width: 20px; /* Sets a fixed width */
-}
-
-/* Styles for the .entry-label class */
-.entry-label {
-  cursor: pointer; /* Changes the cursor to a pointer when hovering over the element */
-  user-select: none; /* Prevents the user from selecting the text */
-  -moz-user-select: none; /* Prevents the user from selecting the text in Firefox */
-}
-
-/* Styles for the .overlay class */
-.overlay {
-  mask: url(#holes); /* Applies a mask to the element */
-  height: 140px; /* Sets a fixed height */
-  pointer-events: none; /* Disables pointer events */
-  transition: background 300ms; /* Sets the transition effect for the background */
-  width: 40px; /* Sets a fixed width */
-}
-
-/* Styles for the .highlight class */
-.highlight {
-  background: #000000; /* Sets the background color */
-  border-radius: 50%; /* Makes the element circular */
-  height: 12px; /* Sets a fixed height */
-  left: 14px; /* Positions the element to the left */
-  pointer-events: none; /* Disables pointer events */
-  position: absolute; /* Positions the element absolutely */
-  top: 14px; /* Positions the element at the top */
-  transition: transform 400ms cubic-bezier(0.175, 0.885, 0.32, 1.2); /* Sets the transition effect for the transform property */
-  transform: translateY(-50px); /* Translates the element vertically */
-  width: 12px; /* Sets a fixed width */
-}
-
-/* Styles for the first child of the .hidden class when it's checked */
-.hidden:nth-child(1):checked ~ .highlight {
-  transform: translateY(0); /* Translates the element vertically */
-}
-
-/* Styles for the third child of the .hidden class when it's checked */
-.hidden:nth-child(3):checked ~ .highlight {
-  transform: translateY(50px); /* Translates the element vertically */
-}
-
-/* Styles for the fifth child of the .hidden class when it's checked */
-.hidden:nth-child(5):checked ~ .highlight {
-  transform: translateY(100px); /* Translates the element vertically */
-}
-
-/* Styles for the first child of the .hidden class when it's checked */
-.hidden:nth-child(1):checked + .entry .circle {
-  border-color: #000000; /* Changes the border color */
-}
-
-/* Styles for the third child of the .hidden class when it's checked */
-.hidden:nth-child(3):checked + .entry .circle {
-  border-color: #000000; /* Changes the border color */
-}
-
-/* Styles for the fifth child of the .hidden class when it's checked */
-.hidden:nth-child(5):checked + .entry .circle {
-  border-color: #000000; /* Changes the border color */
-}
-
-/* Styles for the .containerOuter class when .check is checked */
-.check:checked ~ .containerOuter .overlay {
-  background: #2e1827; /* Changes the background color */
-}
-
-.float-md-start {
-  font-size: 100px;
-  color: #000000;
+  .form_button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }

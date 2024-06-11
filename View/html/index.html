@@ -1,53 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta content="text/html" charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ascii-art-web</title>
-    <link href="/View/static/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/View/image/f.ico" type="image/x-icon">
-    <link href="https://db.onlinewebfonts.com/c/0801c08e5412f54e4b4e9ad146d83a12?family=Ink+Free" rel="stylesheet" type="text/css"/>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ascii-art-web</title>
+  <link href="/View/static/style.css" rel="stylesheet">
+  <link rel="shortcut icon" href="/View/image/f.ico" type="image/x-icon">
+  <link href="https://db.onlinewebfonts.com/c/0801c08e5412f54e4b4e9ad146d83a12?family=Ink+Free" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+  <div>
     <div>
-      <div>
-        <header class="mb-auto">
-          <div>
-            <h1 class="float-md-start" style="text-align: center;">Ascii-art-web</h1>
-          </div>
-        </header>
-        <main class="px-3">
-          <br>
-          <center>
+      <header class="mb-auto">
+        <div>
+          <h1 class="float-md-start" style="text-align: center;">Ascii-art-web</h1>
+        </div>
+      </header>
+      <main class="px-3">
+        <br>
+        <center>
           <div>
             <form method="post" action="/asciiArt">
-              <div class="div_text" >
-                <textarea class="textarea_style" name="text"  ></textarea>
+              <div class="div_text">
+                <textarea class="textarea_style" name="text"></textarea>
               </div>
-            <br><br>
-                <div class="containerOuter">
-                  <div class="container">
-                    <input type="radio" class="hidden" id="input1" name="style" value="standard"  checked >
-                    <label class="entry" for="input1"><div class="circle"></div><div class="entry-label">Standard</div></label>
-                    <input type="radio" class="hidden" id="input2" name="style" value="shadow" >
-                    <label class="entry" for="input2"><div class="circle"></div><div class="entry-label">Shadow</div></label>
-                    <input type="radio" class="hidden" id="input3" name="style" value="thinkertoy" >
-                    <label class="entry" for="input3"><div class="circle"></div><div class="entry-label">Thinkertoy</div></label>
-                    <div class="highlight"></div>
-                    <div class="overlay"></div>
-                  </div>
+              <br><br>
+              <div class="containerOuter">
+                <div class="container">
+                  <input type="radio" class="hidden" id="input1" name="style" value="standard" checked>
+                  <label class="entry" for="input1"><div class="circle"></div><div class="entry-label">Standard</div></label>
+                  <input type="radio" class="hidden" id="input2" name="style" value="shadow">
+                  <label class="entry" for="input2"><div class="circle"></div><div class="entry-label">Shadow</div></label>
+                  <input type="radio" class="hidden" id="input3" name="style" value="thinkertoy">
+                  <label class="entry" for="input3"><div class="circle"></div><div class="entry-label">Thinkertoy</div></label>
+                  <div class="highlight"></div>
+                  <div class="overlay"></div>
                 </div>
-
-            <br><br>
-            <button class="form_button" type="submit">Submit</button>
+              </div>
+              <br><br>
+              <button class="form_button" type="submit">Submit</button>
             </form>
           </div>
-         </center>
-          <br><br><br>
-        </main>
-      </div>
+        </center>
+        <br><br><br>
+      </main>
     </div>
-    <br><br>
-  </body>
+  </div>
+  <br><br>
+</body>
 </html>
