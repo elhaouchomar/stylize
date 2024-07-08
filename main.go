@@ -14,5 +14,5 @@ func main() {
 	http.HandleFunc("/", Controller.RenderHomePage)
 	http.HandleFunc("/asciiArt", Controller.RenderAsciiArtPage)
 
-	log.Fatal(http.ListenAndServe(":3000", nil))
+	log.Fatal(http.ListenAndServe(":3001", nil))
 }

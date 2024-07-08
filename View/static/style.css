@@ -4,7 +4,7 @@ body {
   padding: 0; /* Removes default padding */
   font-family: "Ink Free"; /* Sets the font */
   min-height: 100vh; /* Ensures the body takes up at least the full height of the viewport */
-  background: url("/View/image/images.jpg") no-repeat center center fixed; 
+  background: url("/View/image/wp.jpg") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -209,9 +209,4 @@ a {
 /* Styles for the .containerOuter class when .check is checked */
 .check:checked ~ .containerOuter .overlay {
   background: #2e1827; /* Changes the background color */
-}
-
-.float-md-start {
-  font-size: 100px;
-  color: #000000;
 }
